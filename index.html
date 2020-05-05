@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-Do List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./fonts.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <body>
+            <div class='wrapper-todo' id="wrapper-todo">
+                <h1 class="todo-list-tittle">ToDoList</h1>
+                <form class="todo-form" id="todo-form">
+                    <input autofocus type="text" class="todo-input" aria-label="Enter a new todo item" id='todo-input'
+                        placeholder="Write your task here...">
+                    <button class="add-task" id="add-task" type="submit">+</button>
+                </form>
+                <ol type="a" class='todo-list' id="todo-list"></ol>
+                <div class="empty-state">
+                    <img class="empty-state-icon" src='./assets/image/check-mark.png' id="checklist-icon">
+                    <h2 class="empty-state-tittle">Add your first todo</h2>
+                </div>
+                <div class="overlay-container">
+                    <p class="overlay-prew">Prompt "When holding Ctrl it is possible to select few tasks"</p>
+                    <p class="overlay">Prompt "You can delete selected tasks by pressing del"</p>
+                </div>
+            </div>
+            </div>
+            <script src="base.js"></script>
+            <script src="plugins/modal.js"></script>
+            <script src="./script.js"></script>
+        </body>
+</html>

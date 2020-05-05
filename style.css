@@ -1,0 +1,234 @@
+body{
+    font-size: 18px;
+    font-family: 'Segoe UI';
+}
+li{
+    list-style: none;
+    color:rgb(82, 82, 75);
+    margin-bottom: 5px;
+}
+label{
+    width: 70%;
+    overflow: hidden;
+    margin-bottom: 0rem;
+}
+input{
+    transition: linear 0.4s;
+}
+.wrapper-todo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    margin: 3% auto;
+}
+.todo-form{
+    position: relative;
+    width: 100%;
+    margin-top: 3%;
+}
+.todo-list-tittle{
+    font-size: 4rem;
+    color: rgb(110, 110, 110);
+}
+.todo-input, .add-task, .add-task-modal {
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+.todo-input {
+    width: 100%;
+    height: 50px;
+    background: rgb(245, 247, 255);
+    color:rgb(82, 82, 75);
+    border-radius: 10px;
+    box-shadow: 0px -5px 50px rgb(14, 120, 134, 0.5);
+    animation: hue 60s infinite linear;
+    padding-left: 15px;
+}
+.add-task {
+    height: 70%;
+    width: 60px;
+    position: absolute;
+    top: 16%;
+    right: 5px;
+    background: #F15B42;
+    cursor: pointer;
+    color: rgb(245, 246, 247);
+}
+.todo-list{
+    width: 80%;
+    padding-left: 0;
+    margin-top: 5%;
+}
+.todo-item{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    align-items: center;
+    margin-top: 10px;
+}
+.checkbox{
+    margin-left: 2%;
+}
+.todo-item label{
+    margin-left: 1%;
+    font-size: 2rem;
+    width: 80%;
+}
+.change-btn-task, .delete-btn-task{
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    position: absolute;
+    height: 26px;
+    width: 60px;
+    right: 8px;
+    background: rgb(196, 196, 168);
+    cursor: pointer;
+    color: seashell;
+}
+.change-btn-task{
+    right: 70px;
+    width: 70px;
+    transition-property: background-color;
+    background-color: #fff;
+    transition-duration: 3s;
+}
+.delete-btn-task:hover{
+    background-color: #F15B42;
+    box-shadow: 0px 0px 20px #F15B42;
+}
+
+.selected{
+    border: 1px dashed rgb(224, 227, 237);
+    border-radius: 5px;
+}
+.complete{
+    background-color: lightgreen;
+    text-decoration: line-through;
+    color:rgb(82, 82, 75);
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px lightgreen;
+    transition: linear .2s;
+}
+.overlay-container{
+    color: rgb(231, 230, 230);
+}
+.overlay{
+    display: none;
+}
+.overlay-prew{
+    display: flex;
+}
+.smodal{}
+.smodal.open .modal-window,
+.smodal.open .modal-overlay{
+    opacity: 1;
+    z-index: 1;
+}
+.smodal.open .modal-window{
+    transform: translateY(100px);
+}
+.smodal.open .modal-overlay{
+    background: rgba(0, 0, 0, 0.5);
+}
+.smodal.hide .modal-window,
+.smodal.hide .modal-overlay{
+    opacity: 1;
+    z-index: 1;
+}
+.smodal.hide .modal-window{
+    transform: translateY(-200px);
+}
+.smodal.hide .modal-overlay{
+    background: rgba(0, 0, 0, 0);
+}
+.modal-window, .modal-overlay{
+    opacity: 0;
+    z-index: -1;
+}
+.modal-overlay{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0);
+    transition: background .2s ease-in;
+}
+.modal-window{
+    width: 500px;
+    border-radius: 5px;
+    background: #fff;
+    margin: 0 auto;
+    transform: translateY(-200px);
+    transition: transform .2s ease-in;
+}
+.modal-header{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+.modal-body{
+    padding: 10px;
+}
+.modal-body p{
+    margin: 0 0 5px;
+}
+.modal-close{
+    cursor: pointer;
+}
+.modal-footer{
+    position: relative;
+    height: 60px;
+    padding: 5px 10px;
+    border-top: 1px solid #eee;
+}
+.add-task-modal{
+    height: 70%;
+    width: 60px;
+    top: 16%;
+    right: 5px;
+    background: #F15B42;
+    cursor: pointer;
+    color: rgb(245, 246, 247);
+}
+.empty-state-icon{
+    height: 300px;
+}
+.empty-state-tittle{
+    margin-top: 10%;
+}
+.empty-state{
+    display: none;
+}
+.todo-list:empty + .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(85, 85, 85);
+}
+/*************************************************/
+@keyframes rotateInDownRight {
+from {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+    transform: rotate3d(0, 0, 1, 45deg);
+    opacity: 0;
+    }
+to {
+    -webkit-transform-origin: right bottom;
+    transform-origin: right bottom;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    }
+}
+.rotateInDownRight {
+    -webkit-animation-name: rotateInDownRight;
+    animation-name: rotateInDownRight;
+}
